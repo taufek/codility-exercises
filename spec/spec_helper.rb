@@ -14,9 +14,11 @@
 
 require 'active_support'
 
+puts Dir['lessons/**/**/'].select { |path| path.split('/').length == 3 }
+
 ActiveSupport::Dependencies.autoload_paths = [
-  Dir['lessons/**/**/'].last
-]
+  Dir['lessons/**/**/'].select { |path| path.split('/').length == 3 }
+].flatten
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
