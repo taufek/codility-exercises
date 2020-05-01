@@ -1,4 +1,4 @@
-class FrogRiverOne
+module FrogRiverOne
   extend self
 
   def solution(x, a)
@@ -9,7 +9,7 @@ class FrogRiverOne
 
       leaves[leaf] = true
 
-      if complete?(x, leaves.keys.sort)
+      if complete?(x, leaves)
         time = index
         break
       end
@@ -18,18 +18,15 @@ class FrogRiverOne
   end
 
   def complete?(x, leaves)
-    return false if leaves.length == 0
-
     complete = true
-    max = leaves.max == x
 
-    (leaves.length - 1).times.each do |i|
-      if leaves[i] + 1 != leaves[i + 1]
-        flag = false
+    (1..x).each do |i|
+      unless leaves[i]
+        complete = false
         break
       end
     end
 
-    complete && max
+    complete
   end
 end
