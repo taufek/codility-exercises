@@ -18,6 +18,8 @@ module FrogRiverOne
   end
 
   def complete?(x, leaves)
+    return false if leaves.length < x
+
     complete = true
 
     (1..x).each do |i|
