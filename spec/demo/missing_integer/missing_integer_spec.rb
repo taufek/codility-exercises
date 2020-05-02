@@ -20,4 +20,28 @@ RSpec.describe MissingInteger do
 
     it { is_expected.to eq 1 }
   end
+
+  context do
+    let(:a) { [2] }
+
+    it { is_expected.to eq 1 }
+  end
+
+  context do
+    let(:a) { [1] }
+
+    it { is_expected.to eq 2 }
+  end
+
+  context do
+    let(:a) { [90, 91, 92, 93] }
+
+    it { is_expected.to eq 1 }
+  end
+
+  context do
+    let(:a) { [1, 2, 3, 4, 5, 9999999] }
+
+    it { is_expected.to eq 6 }
+  end
 end

@@ -8,16 +8,21 @@ module MissingInteger
     found = 1
 
     a.each do |i|
-      next if seen[i]
       next if i < 1
+      next if seen[i]
 
       seen[i] = true
+    end
 
-      if !seen[i - 1]
-        found = i - 1
-      elsif !seen[i + 1]
-        found = i + 1
-      end
+    sorted = seen.keys.sort
+
+    return 1 if seen.empty? || seen.keys.min > 1
+    return seen.keys.min - 1 if seen.keys.min > 3
+
+    sorted.length.times do |i|
+      found = sorted[i] + 1
+
+      break if sorted[i] + 1 != sorted[i + 1]
     end
 
     return found
