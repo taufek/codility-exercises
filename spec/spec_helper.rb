@@ -14,8 +14,6 @@
 
 require 'active_support'
 
-puts Dir['lessons/**/**/'].select { |path| path.split('/').length == 3 }
-
 ActiveSupport::Dependencies.autoload_paths = [
   Dir['lessons/**/**/'].select { |path| path.split('/').length == 3 }
 ].flatten
