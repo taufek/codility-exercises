@@ -15,7 +15,8 @@
 require 'active_support'
 
 ActiveSupport::Dependencies.autoload_paths = [
-  Dir['lessons/**/**/'].select { |path| path.split('/').length == 3 }
+  Dir['lessons/**/**/'],
+  Dir['demo/**/**/']
 ].flatten
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
